@@ -21,6 +21,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".FileTranslationActivity" />
+        <activity android:name=".NormalTranslationActivity" />
+        <activity android:name=".ActionHistory" />
     </application>
 
 </manifest>

@@ -1,5 +1,7 @@
 package my.edu.utar.assignment;
 
+import my.edu.utar.assignment.R;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -33,20 +35,32 @@ public class MainActivity extends AppCompatActivity {
         switch (id) {
             case R.id.action_normal_translation:
                 // Handle normal translation action
+                Intent normal = new Intent(this, NormalTranslationActivity.class);
+                startActivity(normal);
                 return true;
             case R.id.action_file_translation:
                 // Handle file translation action
+                Intent file = new Intent(this, FileTranslationActivity.class);
+                startActivity(file);
                 return true;
             case R.id.action_history:
                 // Handle history action
+                Intent history = new Intent(this, ActionHistory.class);
+                startActivity(history);
                 return true;
             case R.id.action_logout:
                 // Handle logout action
+                // Clear user session data
+                // Navigate back to LoginActivity
+                Intent logout = new Intent(this, LoginActivity.class);
+                logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(logout);
+                finish();
                 return true;
             case R.id.login:
                 // Start LoginActivity
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
+                Intent login = new Intent(this, LoginActivity.class);
+                startActivity(login);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

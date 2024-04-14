@@ -1,0 +1,7 @@
+<resources>
+    <item name="action_normal_translation" type="id"/>
+    <item name="action_file_translation" type="id"/>
+    <item name="action_history" type="id"/>
+    <item name="action_logout" type="id"/>
+    <item name="login" type="id"/>
+</resources>
