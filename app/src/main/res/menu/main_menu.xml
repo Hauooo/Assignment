@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_normal_translation"
+        android:title="Normal translation" />
+    <item
+        android:id="@+id/action_file_translation"
+        android:title="File translation" />
+    <item
+        android:id="@+id/action_history"
+        android:title="History" />
+    <item
+        android:id="@+id/action_logout"
+        android:title="Logout" />
+</menu>

@@ -1,0 +1,64 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/uploaded_text_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Uploaded Text Preview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/translated_text_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Translated Text Preview"
+        app:layout_constraintTop_toBottomOf="@id/uploaded_text_preview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/upload_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload"
+        app:layout_constraintTop_toBottomOf="@id/translated_text_preview"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/copy_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Copy"
+        app:layout_constraintTop_toBottomOf="@id/translated_text_preview"
+        app:layout_constraintStart_toEndOf="@id/upload_button" />
+
+    <Button
+        android:id="@+id/download_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Download"
+        app:layout_constraintTop_toBottomOf="@id/translated_text_preview"
+        app:layout_constraintStart_toEndOf="@id/copy_button" />
+
+    <Button
+        android:id="@+id/language_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Language"
+        app:layout_constraintTop_toBottomOf="@id/translated_text_preview"
+        app:layout_constraintStart_toEndOf="@id/download_button" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        app:layout_constraintTop_toBottomOf="@id/translated_text_preview"
+        app:layout_constraintStart_toEndOf="@id/language_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
