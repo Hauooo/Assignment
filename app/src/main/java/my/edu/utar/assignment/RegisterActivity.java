@@ -1,9 +1,11 @@
 package my.edu.utar.assignment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +17,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button backButton;
     private Button registerButton;
     private Button clearButton;
+    private DBHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         backButton = findViewById(R.id.back);
         registerButton = findViewById(R.id.register);
         clearButton = findViewById(R.id.clear);
+        DB = new DBHelper(this);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,8 +41,36 @@ public class RegisterActivity extends AppCompatActivity {
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // Handle register action
+            public void onClick(View view) {
+                String user = usernameEditText.getText().toString();
+                Intent intent = new Intent(RegisterActivity.this, NormalTranslationActivity.class);
+                intent.putExtra("USERNAME", user);
+                startActivity(intent);
+
+                String pass = passwordEditText.getText().toString();
+                String repass = passwordConfirmationEditText.getText().toString();
+
+                if (user.equals("") || pass.equals("") || repass.equals(""))     // enter nothing
+                    Toast.makeText(RegisterActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                else {
+                    if (pass.equals(repass)) {
+                        Boolean checkuser = DB.checkusername(user);         // check the user exist or not
+                        if (checkuser == false) {
+                            Boolean insert = DB.insertUser(user, pass);     //doest exist, insert
+                            if (insert == true) {
+                                Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                 intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(RegisterActivity.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
 
