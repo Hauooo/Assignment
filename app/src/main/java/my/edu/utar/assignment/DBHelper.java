@@ -16,7 +16,7 @@ public class DBHelper extends SQLiteOpenHelper {
     //public static final String UID = "id";
     public static final String COL_1 = "username";
     public static final String COL_2 = "password";
-    private static final String SCRIPT_CREATE_DATABASE = "create Table " + TABLE_NAME + " (" + COL_1 + " TEXT, "+ COL_2 + " TEXT);";
+    private static final String SCRIPT_CREATE_DATABASE = "create Table " + TABLE_NAME + " (" + COL_1 + " TEXT PRIMARY KEY, "+ COL_2 + " TEXT);";
     //---------------------------------------------------
     public static final String TABLE_NAME2 = "history";
     public static final String HID = "id";
