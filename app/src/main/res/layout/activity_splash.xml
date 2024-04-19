@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/splash_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/oig" />
+        android:src="@drawable/avd_logo" />
 
 </RelativeLayout>

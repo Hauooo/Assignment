@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
-        passwordConfirmationEditText = findViewById(R.id.password_confirmation);
+        passwordConfirmationEditText = findViewById(R.id.password);
         backButton = findViewById(R.id.back);
         registerButton = findViewById(R.id.register);
         clearButton = findViewById(R.id.clear);
