@@ -2,7 +2,9 @@
     <string name="app_name">Assignment</string>
     <string-array name="language_array">
         <item>English</item>
-        <item>Spanish</item>
+        <item>Chinese</item>
+        <item>Malay</item>
+        <item>Japanese</item>
         <item>French</item>
         <!-- Add more languages as needed -->
     </string-array>
