@@ -70,31 +70,44 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
 
-
-
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/action_normal_translation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="199dp"
+                    android:layout_height="59dp"
+                    android:layout_marginTop="55dp"
+                    android:textSize="16dp"
                     android:text="Normal Translation" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/action_file_translation"
+                    android:layout_width="199dp"
+                    android:layout_height="59dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="16dp"
+                    android:text="File Translation" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/action_history"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="199dp"
+                    android:layout_height="59dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="16dp"
                     android:text="History" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/action_logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="199dp"
+                    android:layout_height="59dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="16dp"
                     android:text="Logout" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/login"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="199dp"
+                    android:layout_height="59dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="16dp"
                     android:text="Login" />
 
             </LinearLayout>

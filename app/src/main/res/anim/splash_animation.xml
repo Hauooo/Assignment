@@ -2,7 +2,7 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android"
     android:fillAfter="true" >
 
-    <!-- Scale Animation -->
+
     <scale
         android:fromXScale="0"
         android:fromYScale="0"
@@ -14,7 +14,7 @@
         android:startOffset="200"
         android:interpolator="@android:anim/overshoot_interpolator" />
 
-    <!-- Rotation Animation -->
+
     <rotate
         android:fromDegrees="0"
         android:toDegrees="360"
@@ -24,7 +24,7 @@
         android:startOffset="250"
         android:interpolator="@android:interpolator/fast_out_slow_in" />
 
-    <!-- Reverse Scale Animation -->
+
     <scale
         android:fromXScale="0.85"
         android:fromYScale="0.85"
