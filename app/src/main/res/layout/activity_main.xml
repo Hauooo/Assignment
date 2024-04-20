@@ -78,11 +78,6 @@
                     android:layout_height="wrap_content"
                     android:text="Normal Translation" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/action_file_translation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="File Translation" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/action_history"

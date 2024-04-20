@@ -27,14 +27,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button fileTranslationButton = findViewById(R.id.action_file_translation);
-        fileTranslationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent file = new Intent(MainActivity.this, FileTranslationActivity.class);
-                startActivity(file);
-            }
-        });
+
 
         Button historyButton = findViewById(R.id.action_history);
         historyButton.setOnClickListener(new View.OnClickListener() {

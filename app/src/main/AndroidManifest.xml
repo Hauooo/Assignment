@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".FileTranslationActivity" />
+
         <activity android:name=".NormalTranslationActivity" />
         <activity android:name=".ActionHistory" />
         <activity android:name=".RegisterActivity" />
