@@ -75,6 +75,17 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
+                <Spinner
+                    android:id="@+id/input_language_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/language_array" />
+
+                <Spinner
+                    android:id="@+id/translated_language_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/language_array" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/translate_button"
