@@ -61,77 +61,53 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="466dp"
                 android:gravity="center_horizontal"
-                app:layout_constraintTop_toBottomOf="@id/layout1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/select_language1"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                    android:layout_width="171dp"
-                    android:layout_height="48dp"
-                    android:layout_margin="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="61dp">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/auto_complete_txt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/select_language2"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                    android:layout_width="173dp"
-                    android:layout_height="47dp"
-                    android:layout_margin="16dp"
-                    android:layout_marginTop="60dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/select_language1">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/auto_complete_txt2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintTop_toBottomOf="@id/layout1">
 
                 <EditText
                     android:id="@+id/input_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter text to translate"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/translate_button"
-                    android:layout_width="wrap_content"
+                <Spinner
+                    android:id="@+id/input_language_spinner"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Translate"
-                    app:layout_constraintTop_toBottomOf="@id/input_text"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    android:entries="@array/language_array" />
+
+                <Spinner
+                    android:id="@+id/translated_language_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/language_array" />
 
                 <TextView
                     android:id="@+id/translated_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Translated Text"
                     android:gravity="center"
-                    app:layout_constraintTop_toBottomOf="@id/translate_button"
+                    android:text="Translated Text"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/translate_button" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/translate_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:text="Translate"
+                    app:layout_constraintStart_toStartOf="parent" />
+
 
             </LinearLayout>
         </LinearLayout>
