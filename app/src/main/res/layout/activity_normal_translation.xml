@@ -61,20 +61,22 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="466dp"
                 android:gravity="center_horizontal"
-                app:layout_constraintTop_toBottomOf="@id/layout1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/layout1">
+
                 <EditText
                     android:id="@+id/input_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter text to translate"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <Spinner
                     android:id="@+id/input_language_spinner"
                     android:layout_width="match_parent"
@@ -87,23 +89,25 @@
                     android:layout_height="wrap_content"
                     android:entries="@array/language_array" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/translate_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Translate"
-                    app:layout_constraintTop_toBottomOf="@id/input_text"
-                    app:layout_constraintStart_toStartOf="parent" />
-
                 <TextView
                     android:id="@+id/translated_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Translated Text"
                     android:gravity="center"
-                    app:layout_constraintTop_toBottomOf="@id/translate_button"
+                    android:text="Translated Text"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/translate_button" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/translate_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:text="Translate"
+                    app:layout_constraintStart_toStartOf="parent" />
+
 
             </LinearLayout>
         </LinearLayout>
