@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,9 +29,6 @@ public class NormalTranslationActivity extends AppCompatActivity {
     private Button translateButton;
     private TextView translatedText;
     private DBHelper DB;
-    String[] language = {"English","Chinese","Malay","Japanese","French"};
-    AutoCompleteTextView autoCompleteTextView;
-    ArrayAdapter<String> adapterItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,31 +38,29 @@ public class NormalTranslationActivity extends AppCompatActivity {
         inputText = findViewById(R.id.input_text);
         translateButton = findViewById(R.id.translate_button);
         translatedText = findViewById(R.id.translated_text);
-        autoCompleteTextView = findViewById(R.id.auto_complete_txt);
-        autoCompleteTextView = findViewById(R.id.auto_complete_txt2);
+        Spinner inputLanguageSpinner = findViewById(R.id.input_language_spinner);
+        Spinner translatedLanguageSpinner = findViewById(R.id.translated_language_spinner);
         Intent intent = getIntent();
         String username = intent.getStringExtra("USERNAME");
         DB = new DBHelper(this);
-        adapterItems = new ArrayAdapter<String>(this,R.layout.activity_normal_translation);
-
-        autoCompleteTextView.setAdapter(adapterItems);
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String language = parent.getItemAtPosition(position).toString();
-                Toast.makeText(NormalTranslationActivity.this, "Language: " + language, Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
         translateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle translation action
+                String langPrefFrom  = GetLangCode(inputLanguageSpinner.getSelectedItem().toString());
+                String langPrefTo  = GetLangCode(translatedLanguageSpinner.getSelectedItem().toString());
+
+                //error
+                if(langPrefFrom == "err" || langPrefTo == "err"){
+                    Toast.makeText(NormalTranslationActivity.this, "Invalid language", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 TranslatorOptions options = new TranslatorOptions.Builder()
-                        .setSourceLanguage("en")
-                        .setTargetLanguage("fr")
+                        .setSourceLanguage(langPrefFrom)
+                        .setTargetLanguage(langPrefTo)
                         .build();
                 Translator translator = Translation.getClient(options);
                 ProgressDialog progLog = new ProgressDialog(NormalTranslationActivity.this);
@@ -97,10 +93,10 @@ public class NormalTranslationActivity extends AppCompatActivity {
                         //insert translation records into database
                         Boolean insertHistory = DB.insertHistory(inputText.getText().toString(),translatedText.getText().toString(),username);
                         if(insertHistory == true){
-                            Toast.makeText(NormalTranslationActivity.this, "Insert successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NormalTranslationActivity.this, "Translation saved", Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            Toast.makeText(NormalTranslationActivity.this, "Insert failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NormalTranslationActivity.this, "Database Insertion failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -111,5 +107,22 @@ public class NormalTranslationActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    String GetLangCode(String lang){
+        switch(lang){
+            case "English":
+                return "en";
+            case "Chinese":
+                return "zh";
+            case "Malay":
+                return "ms";
+            case "Japanese":
+                return "ja";
+            case "French":
+                return "fr";
+            default:
+                return "err";
+        }
     }
 }
