@@ -1,6 +1,7 @@
 package my.edu.utar.assignment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,11 +27,9 @@ public class NormalTranslationActivity extends AppCompatActivity {
     private EditText inputText;
     private Button translateButton;
     private TextView translatedText;
-
+    private DBHelper DB;
     String[] language = {"English","Chinese","Malay","Japanese","French"};
-
     AutoCompleteTextView autoCompleteTextView;
-
     ArrayAdapter<String> adapterItems;
 
     @Override
@@ -43,6 +42,9 @@ public class NormalTranslationActivity extends AppCompatActivity {
         translatedText = findViewById(R.id.translated_text);
         autoCompleteTextView = findViewById(R.id.auto_complete_txt);
         autoCompleteTextView = findViewById(R.id.auto_complete_txt2);
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("USERNAME");
+        DB = new DBHelper(this);
         adapterItems = new ArrayAdapter<String>(this,R.layout.activity_normal_translation);
 
         autoCompleteTextView.setAdapter(adapterItems);
@@ -70,6 +72,7 @@ public class NormalTranslationActivity extends AppCompatActivity {
                 progLog.setCancelable(false);
                 progLog.show();
 
+                //download translation language model
                 translator.downloadModelIfNeeded().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -84,12 +87,21 @@ public class NormalTranslationActivity extends AppCompatActivity {
                 });
 
                 String sourceText = inputText.getText().toString();
-                translatedText.setText("testing");
 
+                //translation task
                 Task<String> result = translator.translate(sourceText).addOnSuccessListener(new OnSuccessListener<String>() {
                     @Override
                     public void onSuccess(String s) {
                         translatedText.setText(s);
+
+                        //insert translation records into database
+                        Boolean insertHistory = DB.insertHistory(inputText.getText().toString(),translatedText.getText().toString(),username);
+                        if(insertHistory == true){
+                            Toast.makeText(NormalTranslationActivity.this, "Insert successfully", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(NormalTranslationActivity.this, "Insert failed", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
