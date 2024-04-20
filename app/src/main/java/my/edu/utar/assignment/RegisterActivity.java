@@ -14,7 +14,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private EditText passwordConfirmationEditText;
-    private Button backButton;
+
     private Button registerButton;
     private DBHelper DB;
 
@@ -26,16 +26,9 @@ public class RegisterActivity extends AppCompatActivity {
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
         passwordConfirmationEditText = findViewById(R.id.password2); // Corrected this line
-        backButton = findViewById(R.id.back_button);
         registerButton = findViewById(R.id.registerBtn);
         DB = new DBHelper(this);
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle back action
-            }
-        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
