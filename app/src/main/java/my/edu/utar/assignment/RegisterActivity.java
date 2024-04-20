@@ -16,7 +16,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText passwordConfirmationEditText;
     private Button backButton;
     private Button registerButton;
-    private Button clearButton;
     private DBHelper DB;
 
     @Override
@@ -26,10 +25,9 @@ public class RegisterActivity extends AppCompatActivity {
 
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
-        passwordConfirmationEditText = findViewById(R.id.password);
-        backButton = findViewById(R.id.back);
-        registerButton = findViewById(R.id.register);
-        clearButton = findViewById(R.id.clear);
+        passwordConfirmationEditText = findViewById(R.id.password2); // Corrected this line
+        backButton = findViewById(R.id.back_button);
+        registerButton = findViewById(R.id.registerBtn);
         DB = new DBHelper(this);
 
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Boolean insert = DB.insertUser(user, pass);     //doest exist, insert
                             if (insert == true) {
                                 Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                 intent = new Intent(getApplicationContext(), MainActivity.class);
+                                intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
@@ -71,13 +69,6 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
                     }
                 }
-            }
-        });
-
-        clearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle clear action
             }
         });
     }
