@@ -1,62 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="166dp"
-        android:layout_height="166dp"
-        android:src="@drawable/akakura"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="-26dp">
 
-        <Button
-            android:id="@+id/language_button"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Change Language" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/action_normal_translation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Normal Translation" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/action_file_translation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="File Translation" />
+                <ImageView
+                    android:id="@+id/layout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/top_background" />
 
-        <Button
-            android:id="@+id/action_history"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="History" />
+                <ImageView
+                    android:id="@+id/women2"
+                    android:layout_width="224dp"
+                    android:layout_height="198dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/women" />
 
-        <Button
-            android:id="@+id/action_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout" />
+                <TextView
+                    android:id="@+id/textWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="21dp"
+                    android:text="Translation \nApp"
+                    android:textColor="#ffffff"
+                    android:textSize="33dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                app:layout_constraintTop_toBottomOf="@id/layout1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/action_normal_translation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal Translation" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/action_file_translation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="File Translation" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/action_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="History" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/action_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Logout" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,9 +34,9 @@
                     android:id="@+id/women2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/women1"
-                    tools:layout_editor_absoluteX="266dp"
-                    tools:layout_editor_absoluteY="24dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/women1" />
 
                 <TextView
                     android:id="@+id/textWelcome"
@@ -135,7 +135,7 @@
                 android:textColor="#A2A4b5"
                 android:textSize="16dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/registerBtn"
                 android:layout_width="345dp"
                 android:layout_height="55dp"
@@ -157,7 +157,7 @@
                 android:textColor="#2f3363"
                 android:textStyle="bold" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/back_button"
                 android:layout_width="345dp"
                 android:layout_height="55dp"
